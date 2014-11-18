@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Product - View {% endblock %}
+
+{% block heading %} <h1> Product</h1><h2>View</h2> {% endblock %}
+
+{% block content %}
+    <table>
+        {{ product.name }}
+        <br/>
+        <img class="thumbnail" src="{{ product.images.all.0.url }}" alt="">
+        <br/>
+        {{ product.description }}
+    </table>
+{% endblock %}

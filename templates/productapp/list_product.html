@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %} 产品清单 {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+    <h2>产品清单</h2>
+</div>
+{% for item in list_items %}
+{% with image_urls=item.images.all %}
+<div class="row" style="padding-top:10">
+    <div class="span3 media-grid">
+        <a href="#">
+        <img class="thumbnail" src="{{ image_urls.0.url }}" alt="">
+        </a>
+    </div>
+    <div class="span-two-thirds">
+        <h4>{{item.name}}</h4>
+        {{item.description}}
+    </div>
+    <div class="span2" style="align:right">
+        <p><a class="btn primary" href="{% url 'productapp:view_product' item.id %}">查看</a></p>
+        <div class="span2"><h3>￥{{ item.current_price|floatformat:"2" }}</h3></div>
+        <div class="span"><a class="btn primary" href='#'>加入购物车</a></div>
+    </div>
+</div>
+{% endwith %}
+{% endfor %}
+{% if list_items.has_previous %}
+    <a href="?page={{ list_items.previous_page_number }}">上一页</a>
+{% endif %}
+
+<span class="current">
+    第{{ list_items.number }}页，共{{ list_items.paginator.num_pages }}页
+</span>
+
+{% if list_items.has_next %}
+        <a href="?page={{ list_items.next_page_number }}">下一页</a>
+{% endif %}
+{% endblock %}
+
