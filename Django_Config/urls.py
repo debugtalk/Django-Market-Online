@@ -15,6 +15,10 @@ urlpatterns += patterns('',
     url(r'^product/', include('productapp.urls', namespace='productapp'), name='productapp'),
 )
 
+urlpatterns += patterns('',
+    url(r'^cart/', include('cartapp.urls', namespace='cartapp'), name='cartapp'),
+)
+
 '''
 urlpatterns += patterns('',
     url(r'^market/', include('marketapp.urls', namespace='marketapp'), name='marketapp'),

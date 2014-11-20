@@ -22,7 +22,7 @@
     <div class="span2" style="align:right">
         <p><a class="btn primary" href="{% url 'productapp:view_product' item.id %}">查看</a></p>
         <div class="span2"><h3>￥{{ item.current_price|floatformat:"2" }}</h3></div>
-        <div class="span"><a class="btn primary" href='#'>加入购物车</a></div>
+        <div class="span"><a class="btn primary" href='{% url 'cartapp:view_cart' %}'>加入购物车</a></div>
     </div>
 </div>
 {% endwith %}

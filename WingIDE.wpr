@@ -5,7 +5,7 @@
 ##################################################################
 [project attributes]
 debug.launch-configs = (1,
-                        {'launch-gavXbXYxRuPQxI0E': ({},
+                        {'launch-gavXbXYxRuPQxI0E': ({'shared': False},
         {'buildcmd': ('project',
                       None),
          'env': ('project',
@@ -20,6 +20,13 @@ debug.launch-configs = (1,
          'runargs': u'runserver --noreload 8000',
          'rundir': ('project',
                     u'')})})
+debug.named-entry-points = (1,
+                            {'manage.py': ({},
+        {'auto-show': False,
+         'launch-id': ('custom',
+                       (u'',
+                        'launch-gavXbXYxRuPQxI0E')),
+         'loc': loc('manage.py')})})
 proj.directory-list = [{'dirloc': loc('.'),
                         'excludes': (),
                         'filter': u'*',
@@ -27,7 +34,10 @@ proj.directory-list = [{'dirloc': loc('.'),
                         'recursive': True,
                         'watch_for_changes': True}]
 proj.file-type = 'shared'
-proj.launch-config = {loc('manage.py'): ('custom',
+proj.launch-config = {loc('Django_Config/settings.py'): ('custom',
+        (u'',
+         'launch-gavXbXYxRuPQxI0E')),
+                      loc('productapp/views.py'): ('custom',
         (u'',
          'launch-gavXbXYxRuPQxI0E'))}
-testing.test-framework = {loc('manage.py'): ':internal djangotest'}
+testing.test-framework = {None: ':internal djangotest'}

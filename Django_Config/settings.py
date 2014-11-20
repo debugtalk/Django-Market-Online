@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     # my apps
     #'marketapp',
     'productapp',
-    #'cart_app',
+    #'cartapp',
 )
 
 MIDDLEWARE_CLASSES = (
