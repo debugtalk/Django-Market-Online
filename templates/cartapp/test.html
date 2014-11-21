@@ -5,20 +5,16 @@
 {% block content %}
 
 <p>{{ cart.items }}</p>
-<p>{{ cart.count }}</p>
-<p>{{ cart.unique_count }}</p>
-<p>{{ cart.is_empty }}</p>
 <p>{{ cart.products }}</p>
-<p>{{ cart.total }}</p>
+<p>{{ cart.is_empty }}</p>
+<p>{{ cart.count_of_products }}</p>
 
-<!--
-{% for item in cart.items %}
+{% for item in items %}
   <tr>
     <th>{{ item.quantity }}</th>
-    <td>{{ item.product.name }}</td>
-    <td>{{ item.total_price }}</td>
+    <td>{{ item.unit_price }}</td>
   </tr>
 {% endfor %}
--->
 
+<p>{{ total }}</p>
 {% endblock %}
