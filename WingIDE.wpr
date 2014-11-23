@@ -49,16 +49,7 @@ proj.directory-list = [{'dirloc': loc('.'),
                         'recursive': True,
                         'watch_for_changes': True}]
 proj.file-type = 'shared'
-proj.launch-config = {loc('cartapp/cart.py'): ('custom',
-        (u'',
-         'launch-x6cSlqcCeURZoSnf')),
-                      loc('manage.py'): ('custom',
-        (u'',
-         'launch-gavXbXYxRuPQxI0E')),
-                      loc('marketapp/__init__.py'): ('custom',
-        (u'',
-         'launch-x6cSlqcCeURZoSnf')),
-                      loc('marketapp/forms.py'): ('custom',
+proj.launch-config = {loc('productapp/tests.py'): ('custom',
         (u'',
          'launch-x6cSlqcCeURZoSnf'))}
 testing.test-framework = {None: ':internal djangotest'}

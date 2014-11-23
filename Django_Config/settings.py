@@ -39,7 +39,9 @@ INSTALLED_APPS = (
     # my apps
     #'marketapp',
     'productapp',
-    #'cartapp',
+    'cartapp',
+    # referrence apps
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
