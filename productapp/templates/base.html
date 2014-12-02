@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{% endblock %}</title>
+  <meta content="telephone=no" name="format-detection" />
+  <link href="{{STATIC_URL}}images/apple-touch-icon.png" rel="apple-touch-icon-precomposed"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link type="text/css" href="{{STATIC_URL}}css/reset.css" rel="stylesheet" />
+  <link type="text/css" href="{{STATIC_URL}}css/search_new.css" rel="stylesheet" />
+  <link type="text/css" href="{{STATIC_URL}}css/head.css" rel="stylesheet" />
+  <link type="text/css" href="{{STATIC_URL}}css/foot.css" rel="stylesheet" />
+  {% block style %}{% endblock %}
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/search.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/iscroll.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/jquery.lazyload.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/transport.js"></script>
+  {% block script %}{% endblock %}
+</head>
+
+<body>
+  {% block content %}
+    页面内容
+  {% endblock %}
+
+  <!--页面底部-->
+  <div class="viewport">
+    <div id="footer" class="footer">
+      <div class="row g_1">
+        <a href="/product/communities/">首页</a>
+        <a href='/product/communities/'>会员登录</a>
+        <a href="/cart/show/">购物车</a>
+      </div>
+      <div class="row g_2">
+        <a href="javascript:window.scrollTo(0,0);">返回顶部</a>
+      </div>
+      <div class="row g_3">
+        <p>©2014 社区邦</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var global_loading=document.getElementById("global_loading");
+    global_loading.parentNode.removeChild(global_loading);
+  </script>
+</body>
+
+</html>

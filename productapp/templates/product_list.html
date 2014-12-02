@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+  产品列表
+{% endblock %}
+
+{% block content %}
+
+<div class="tab">
+  <div class="label">
+    <a class="label1" href="javascript:void(0)"><i class="on"></i>产品类别名称</a>
+  </div>
+
+  <div class="productlist clearfix">
+
+    {% for product in product_list %}
+    <div class="srp j_autoResponsive_container m-ks-autoResponsive-container m-animation album" style="opacity: 1;{% cycle '' 'float:right;' %}">
+      <div data-id="36511624513" class="product">
+        <div class="pro-inner">
+          <div class="proImg-wrap">
+            <a  href="/product/view/{{product.id}}/"><img src="{{product.thumb_image}}"></a>
+          </div>
+          <div class="proInfo-wrap">
+            <div class="proTitle">
+              <a href="/product/view/{{product.id}}/">{{product.name}}</a>
+            </div>
+            <div class="proPrice">
+              <em>￥{{product.original_price}}元</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+﻿{% endblock %}

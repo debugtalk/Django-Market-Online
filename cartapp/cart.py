@@ -34,7 +34,7 @@ class CartItem(object):
     def __init__(self, product, quantity):
         self.product = product
         self.quantity = int(quantity)
-        self.unit_price = float(product.current_price)
+        self.unit_price = float(product.original_price)
 
     def __repr__(self):
         return u'CartItem Object (%s)' % self.product

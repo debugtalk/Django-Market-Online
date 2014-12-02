@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+  产品列表
+{% endblock %}
+
+{% block style %}
+<style>
+/*页面自身样式*/
+section{font: 14px/1.5 微软雅黑;}
+  .form{margin: 0 10px;padding-top:15px;}
+  .frame{margin-bottom: 15px;}
+  .frame p{margin-bottom: 5px;}
+  .frame input{width: 100%;height: 35px;border: 1px solid #c3c3c3;line-height: 35px;}
+  .area select{width: 80px;height: 30px;line-height: 30px;font-size:14px;float: left;display: inline-block;*display: inline;*zoom: 1;height:22px; line-height:18px; padding:2px 0;
+  }
+  .form .submit .btn{background-color: #F7762E;color: #fff;font: 14px/1.5 微软雅黑;font-weight: bold;border: 0;}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+  <a class="back" href="javascript:history.back();"></a>
+  <span class="headline">订单处理</span>
+</div>
+
+<section>
+  <form action="" method="post" name="logUserInfoForm" id="logUserInfoForm">
+    <div class="form clearfix">
+      <div class="frame street">
+        <p>详细地址<font class="red">*</font></p>
+        <input type="text" value="" name="address" id="address">
+      </div>
+      <div class="frame street">
+        <p>收货人姓名<font class="red">*</font></p>
+        <input type="text" value="" name="consignee" id="consignee">
+      </div>
+      <div class="frame street">
+        <p>手机号码<font class="red">*</font></p>
+        <input type="text" value="" name="mobile" id="mobile">
+      </div>
+      <div class="frame street">
+        <p>电子邮箱</p>
+        <input type="text" value="" name="email" id="email">
+      </div>
+      <div class="frame area">
+        <p>配送时间</p>
+        <div class="clearfix">  
+          <select name="best_time" id="best_time" size="1" style="width:150px;">
+            <option value="" selected>请选择送货时间</option>
+            <option value="工作日（周一至周五）">工作日（周一至周五）</option>
+            <option value="双休日（周六至周日）">双休日（周六至周日）</option>
+            <option value="随时都可以">随时都可以</option>
+          </select>
+        </div>
+      </div>
+      <div class="frame submit">
+        <input name="isinput" type="hidden" value="1" />
+        <input type="submit" name="Submit" id="address_submit" class="btn" value="配送到这个地址" autocomplete="off" />
+      </div>
+    </div>
+  </form>
+</section>
+
+{% endblock %}

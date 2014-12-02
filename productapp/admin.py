@@ -1,17 +1,23 @@
 from django.contrib import admin
 
 # Register your models here.
-from productapp.models import Area, Image, Product
+from productapp.models import District, Community, Image, Product
 
-class AreaAdmin(admin.ModelAdmin):
+class DistrictAdmin(admin.ModelAdmin):
     list_display = ('code', 'name')
-    list_filter = ['code', 'name']
-    search_fields = ['code', 'name']
+    list_filter = ['name',]
+    search_fields = ['name',]
+    list_per_page = 20
+
+class CommunityAdmin(admin.ModelAdmin):
+    list_display = ('name', 'district')
+    list_filter = ['name', 'district']
+    search_fields = ['name', 'district']
     list_per_page = 20
 
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'url',)
-    search_fields = ['name', 'url',]
+    search_fields = ['name',]
     list_per_page = 20
 
 class ProductAdmin(admin.ModelAdmin):
@@ -20,6 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ['name',]
     list_per_page = 20
 
-admin.site.register(Area, AreaAdmin)
+admin.site.register(District, DistrictAdmin)
+admin.site.register(Community, CommunityAdmin)
 admin.site.register(Image, ImageAdmin)
 admin.site.register(Product, ProductAdmin)

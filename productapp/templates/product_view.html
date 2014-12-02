@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+  产品名称
+{% endblock %}
+
+{% block style %}
+  <link type="text/css" href="{{STATIC_URL}}css/style.css" rel="stylesheet" />
+  <link type='text/css' href='{{STATIC_URL}}css/product-intro.css' rel='stylesheet' />
+{% endblock %}
+{% block script %}
+  <script type="text/javascript" src="{{STATIC_URL}}js/sqb_view_product.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+  <a class="back" href="javascript:history.back();"></a>
+  <span class="headline">{{ product.name }}</span>
+  <a class="search" href=""></a>
+</div>
+
+<div class="product-intro" >
+
+  <!--商品略缩图-->
+  <div class="show">
+    <link href="{{STATIC_URL}}css/TouchSlide.1.1.css" rel="stylesheet" type="text/css" />
+    <div id="focus" class="focus">
+      <div class="bd">
+        <ul>
+          <img src="{{ product.thumb_image }}" />
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pro-info">
+    <p class="pro-name"><strong>{{ product.description }}</strong></br></p>
+
+    <!--商品价格-->
+    <div class="price clearfix">
+      <p class="jx-price">本店价&nbsp;&nbsp;&nbsp;
+        <strong id="product_price">
+          {% if product.discount_price %}
+            {{ product.discount_price }}
+          {% else %}
+            {{ product.original_price }}
+          {% endif %}
+        </strong>
+      </p>
+      <p class="market-price"><strong>￥{{ product.original_price }}元</strong></p>
+    </div>
+
+    <!--库存量-->
+    <div class='goods_number clearfix'>
+      <p class="name">库&nbsp;&nbsp;&nbsp;存</p><span id="msg">100</span>
+    </div>
+
+    <!--购买数量-->
+    <div class="goods_number clearfix">
+      <p class="name">数&nbsp;&nbsp;&nbsp;量</p>
+      <div class="addForm">
+        <input type="button" value="-" class="btn" onClick="changeNumber(-1);displayTotalPrice();" />
+        <input type="text" class="text" id='product_number' onblur="displayTotalPrice()" value="1"/>
+        <input type="button" value="+" class="btn" onClick="changeNumber(1);displayTotalPrice();" />
+      </div>
+    </div>
+
+    <!--商品总价-->
+    <div class='goods_number clearfix'>
+      <p class="name">商品总价:</p><span class="shopcount" id="PRODUCT_TOTAL_PRICE"></span>
+    </div>
+
+    <!--立即购买 or 加入购物车-->
+    <div class="div_but1 clearfix" id="btn1">
+      <div class="buybut" onclick="addToCart({{product.id}});jumpToCart();">
+        <a class='ljgm' name="goods_buy" href="javascript:void()">
+          <i></i>
+          立即购买
+        </a>
+      </div>
+      <div class="cartbut" onclick="addToCart({{product.id}});">
+        <a class='add' name="goods_cart" href="javascript:void()">
+          <i></i>
+          加入购物车
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!--商品详细介绍-->
+  <div class="pro-detial">
+    <div class="pro-intro clearfix">
+      <a href="goods.php?act=view_img&id=118"><span>商品详细介绍</span></a>
+      <span class="arrow"></span>
+    </div>
+  </div>
+
+</div>
+
+<div id="buy_lay"></div>
+<div id="buy_lay_frm">
+  <div class="frm">
+    <div class="tips">商品已添加到购物车！</div>
+    <div class="btns">
+      <input id="btn_continue" class="btn" type="button" value=" 再逛会 " />
+      <input id="btn_check" class="btn" type="button" value=" 去结算 " />
+    </div>
+  </div>
+</div>
+{% endblock %}

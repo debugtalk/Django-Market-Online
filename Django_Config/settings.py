@@ -38,10 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # my apps
     #'marketapp',
+    'customerapp',
     'productapp',
     'cartapp',
     # referrence apps
-    'rest_framework',
+    #'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,7 +69,7 @@ if 'SERVER_SOFTWARE' in os.environ:
     )
 else:
     # Make `python manage.py syncdb` works happy!
-    MYSQL_DB   = 'db_django_marketonline'
+    MYSQL_DB   = 'db_marketonline'
     MYSQL_HOST = 'localhost'
     MYSQL_PORT = '3306'
     MYSQL_USER = 'sae'
@@ -96,11 +97,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
-# Template dirs
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Template path
+TEMPLATE_LOADERS = (
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.filesystem.Loader',
+)
 TEMPLATE_DIRS = (
+    BASE_DIR,
     os.path.join(BASE_DIR, 'templates'),
 )

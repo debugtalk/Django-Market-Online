@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+  小区列表
+{% endblock %}
+
+{% block content %}
+<div class="tab">
+  <div class="label">
+    <a class="label1" href="javascript:void(0)"><i class="on"></i>分地区浏览</a>
+  </div>
+
+  <div class="category">
+    <ul>
+      {% for district in district_list %}
+      <li class="clearfix">
+        <div class="info">
+          <p class="name">{{ district.name }}</p>
+            <div class="data">
+              {% for community in district.communities.all %}
+                <a href="/product/list-all/{{community.id}}/">{{community.name}}</a>
+              {% endfor %}
+            </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+{% endblock %}
